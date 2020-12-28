@@ -1,9 +1,12 @@
 node {
-   stage('build and run') {
+   stage('clone') {
    git 'https://github.com/priximmo/jenkins-helloworld.git'
-   sh label: '', script: '''
-   javac Main.java
-   java Main
-   '''
-    }
+   }
+   stage('build') {
+   sh label: '', script: 'javac Main.java'
+   }
+   stage('run') {
+   sh label: '', script: 'java Main'
+   }
 }
+
